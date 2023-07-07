@@ -1,0 +1,26 @@
+# 3. Encontre a substring palindroma mais longa na string abaixo.
+
+# String Palindromo definição: Uma palavra é dita palindroma quando possui o mesmo
+# significado se lida da esquerda para a direita ou da direita para a esquerda.
+
+# a. Input: "babed"
+# b. Output: "bab" (Observação: pode haver várias saídas válidas, você só precisa retornar uma delas.)
+
+def longest_palindrome_substring(string):
+    n = len(string)
+    longest_palindrome = ""
+
+    for i in range(n):
+        for j in range(i, n):
+            substring = string[i:j+1]
+            if substring == substring[::-1] and len(substring) > len(longest_palindrome):
+                longest_palindrome = substring
+
+    return longest_palindrome
+
+
+input_string = "babed"
+
+output_string = longest_palindrome_substring(input_string)
+
+print(output_string)
